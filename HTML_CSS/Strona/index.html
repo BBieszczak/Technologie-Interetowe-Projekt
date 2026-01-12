@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wprowadzenie Unity</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#wstep">❈Wstęp</a></li>
+                <li><a href="#tech">❄Technologie</a></li>
+                <li><a href="#zastosowanie">✤Zastosowanie</a></li>
+                <li><a href="#przyklad">❉Przykład</a></li>
+                <li><a href="#footer">❋Footer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="pudelko" id="tytul">
+            <h1>Wprowadzenie Unity</h1>
+        </div>
+
+        <section>
+            <div class="pudelko" id="wstep">
+                <article>
+                    <h2>Wstęp</h2>
+                    <hr>
+                    <p>Strona stanowi praktyczno-teoretyczne wprowadzenie do tematyki tworzenia gier i aplikacji
+                        interaktywnych, opierając się na trzech kluczowych technologiach: silniku
+                        <strong><a href="https://pl.wikipedia.org/wiki/Unity_(silnik_gry)" target="_blank"
+                                title="Link do wikipedii">Unity</a></strong>, programie
+                        <strong><a href="https://pl.wikipedia.org/wiki/Blender_(program)" target="_blank"
+                                title="Link do wikipedii">Blender</a></strong> oraz języku <strong><a
+                                href="https://pl.wikipedia.org/wiki/C_Sharp" target="_blank"
+                                title="Link do wikipedii">C#</a></strong>.
+                        Strona powstał w celu zademonstrowania kompletnego procesu
+                        deweloperskiego, łączącego grafikę trójwymiarową z zaawansowaną logiką programistyczną.
+                    </p>
+                    <p>
+                        <i>Blender</i> wykorzystywany jest tutaj do kreacji <i>modeli 3D i animacji</i>, które stanowią
+                        wizualny
+                        fundament projektu. Unity pełni funkcję środowiska łączącym wszystkie elementy, natomiast język
+                        <i>C#</i> służy do tworzenia skryptów sterujących mechaniką i interakcjami.
+                    </p>
+                    <p>
+                        Kluczowym aspektem opracowania jest prezentacja właściwego przepływu pracy. Opisane tu
+                        zagadnienia pozwalają zrozumieć, w jaki sposób przygotować zasoby graficzne i poprawnie połączyć
+                        je z kodem, aby uzyskać funkcjonalną całość. Materiał ten służy jako baza wiedzy niezbędna do
+                        realizacji własnych projektów w <i>Unity</i>.
+                    </p>
+                    <hr>
+                </article>
+            </div>
+            <article id="tech">
+                <div class="pudelko" id="tytul">
+                    <h2>Technologie</h2>
+                </div>
+
+                <div id="technologie">
+                    <div class="pudelko">
+                        <h3>Unity</h3>
+                        <p>Unity to serce całego projektu – plac budowy, na którym łączysz grafikę i kod w całość. To
+                            tutaj decydujesz o fizyce i zasadach świata, zamieniając luźne pliki w działającą grę.</p>
+                    </div>
+
+                    <div class="pudelko">
+                        <h3>Blender</h3>
+                        <p>To twoja cyfrowa pracownia. Działa jak wirtualna glina, z której rzeźbisz postacie i budynki.
+                            Jeśli Unity jest silnikiem, to Blender odpowiada za karoserię i styl twojej gry.</p>
+                    </div>
+
+                    <div class="pudelko">
+                        <h3>C#</h3>
+                        <p>Język, którym „rozmawiasz” z grą. To on sprawia, że postać skacze, a wrogowie atakują. Bez
+                            niego gra byłaby tylko ładną, ale nieruchomą makietą – to on tchnie w nią życie.</p>
+                    </div>
+                </div>
+            </article>
+
+            <div class="pudelko" id="tytul">
+                <h2 id="zastosowanie">Łączenie aplikacji</h2>
+            </div>
+            <div class="pudelko" id="wstep">
+                <article>
+                    <h3>Eksportowanie obiektów z blendera</h3>
+                    <hr>
+                    <p>
+                        Przenoszenie modeli z <strong>Blendera do Unity</strong> można porównać do tłumaczenia książki
+                        na inny język.
+                        Blender to Twój warsztat artystyczny, a Unity to plac budowy gry. Żeby te dwa programy się
+                        dogadały, musisz użyć <i>formatu FBX</i> – to taki uniwersalny plik, który rozumieją oba
+                        narzędzia.
+                    </p>
+                    <p>
+                        Cały proces zaczynasz w Blenderze. Kiedy masz już gotowy model (np. postać czy mebel), musisz go
+                        zaznaczyć i wybrać opcję eksportu do pliku <i>.fbx</i> (znajdziesz to w menu <i>File ->
+                            Export</i>). Autor
+                        strony zwraca uwagę, że w tym momencie warto zerknąć w ustawienia po prawej stronie okna zapisu.
+                        Chodzi o to, żeby upewnić się, że wysyłasz tylko to, co zaznaczyłeś, a nie całą "brudną" scenę
+                        roboczą.
+                    </p>
+                    <p>
+                        Kiedy masz już plik na dysku, wchodzisz do Unity. Tutaj dobra rada: zrób sobie najpierw osobny
+                        folder, np. "Modele", żeby nie robić bałaganu. W tym folderze klikasz prawym przyciskiem myszy,
+                        wybierasz <i>Import New Asset</i> i wskazujesz swój <i>plik FBX</i>.
+                    </p>
+                    I tu pojawia się najważniejszy moment, który często myli początkujących. Po wrzuceniu modelu do
+                    Unity, może on wyglądać na smutną, <i>szarą bryłę bez kolorów</i>. Dlaczego? Bo kolory i tekstury są
+                    "zamknięte" w środku pliku i Unity nie wie, jak ich użyć.
+                    <p>
+                        Musisz wtedy kliknąć na swój model i w bocznym panelu (Inspektorze) znaleźć przyciski do
+                        "wypakowania" <i>materiałów i tekstur</i>. To działa trochę jak rozpakowywanie walizki
+                        po podróży – wyjmujesz ubrania (tekstury) i układasz je na półkach (w folderach). Gdy to
+                        zrobisz, Unity automatycznie "pomaluje" Twój model.
+                    </p>
+                    <p>
+                        Teraz wystarczy przeciągnąć gotowy obiekt na środek ekranu (na Scenę). Od tej chwili jest on
+                        pełnoprawnym elementem gry – możesz do niego pisać skrypty w <strong>C#</strong>, kazać mu
+                        skakać, niszczyć się
+                        czy cokolwiek innego, co sobie wymyślisz.
+                    </p>
+
+                    <div class="galleryBlender">
+                        <img src="Obrazy/ZdjBlender1.png" alt="">
+                        <img src="Obrazy/ZdjBlender2.png" alt="">
+                        <img src="Obrazy/ZdjBlender3.png" alt="">
+                    </div>
+                    <hr>
+                    <h3>Użycie C# w Unity</h3>
+                    <hr>
+                    <p><strong>Unity</strong> działa w oparciu o język programowania <strong>C#</strong>. Jest to rozwiązanie dobrane tak, aby zachować
+                        równowagę między dużymi możliwościami a łatwością nauki. W przeciwieństwie do starszych i
+                        trudniejszych technologii, <i>C#</i> jest bezpieczniejszy dla twórcy, ponieważ komputer automatycznie
+                        zajmuje się zarządzaniem pamięcią. Dzięki temu programista nie musi martwić się technicznymi
+                        detalami sprzętowymi i "sprzątaniem" kodu, tylko może w pełni skupić się na projektowaniu
+                        rozgrywki.
+                    </p>
+                    <p>
+                        Cała konstrukcja świata gry opiera się na systemie tak zwanych <strong>GameObjectów</strong>. Najlepiej wyobrazić
+                        je sobie jako puste pudełka, które same w sobie nie pełnią żadnej funkcji. Aby taki pusty obiekt
+                        stał się postacią, kamerą czy elementem otoczenia, trzeba wypełnić go komponentami. <strong>Komponenty</strong>
+                        to gotowe cegiełki odpowiedzialne za konkretne cechy, takie jak <i>podleganie grawitacji</i>,
+                        <i>emitowanie światła</i> czy <i>odtwarzanie dźwięku</i>.
+                    </p>
+                    <p>
+                        Ponieważ gotowe elementy rzadko wystarczają do stworzenia w pełni unikalnej produkcji, niezbędne
+                        staje się pisanie własnych <i>skryptów</i>. Kod stworzony w <i>C#</i> staje się po prostu nowym, autorskim
+                        komponentem, który dokłada się do obiektu. To właśnie te instrukcje ożywiają grę, definiując
+                        precyzyjnie, jak elementy mają reagować na działania gracza – na przykład z jaką siłą postać ma
+                        podskoczyć po wciśnięciu spacji.
+                    </p>
+                    <p>
+                        W procesie tworzenia można wybrać jedną z dwóch ścieżek. <strong>Tradycyjna metoda</strong>, oparta na łączeniu
+                        <i>obiektów</i> i <i>komponentów</i>, jest bardzo intuicyjna i w zupełności wystarcza do stworzenia większości
+                        gier. Dla bardzo złożonych symulacji, gdzie na ekranie muszą pojawić się tysiące elementów
+                        jednocześnie, dostępna jest <strong>technologia DOTS</strong>. Pozwala ona na maksymalne wykorzystanie mocy
+                        nowoczesnych procesorów, choć wymaga od twórcy zmiany myślenia i jest trudniejsza w opanowaniu.
+                    </p>
+                    <p>
+                        Ogromnym ułatwieniem w codziennej pracy jest ścisła <i>integracja kodu</i> z edytorem wizualnym.
+                        Zmienne zdefiniowane w skryptach są widoczne w panelach sterowania, co pozwala na edycję gry „na
+                        żywo”. Parametry takie jak szybkość biegu czy wysokość skoku można zmieniać w trakcie trwania
+                        rozgrywki, natychmiast obserwując efekty, bez konieczności ciągłego zatrzymywania i ponownego
+                        uruchamiania projektu.
+                    </p>
+
+                    <div class="galleryC">
+                        <img src="Obrazy/ZdjC1.avif" alt="">
+                        <img src="Obrazy/ZdjC2.avif" alt="">
+                    </div>
+                    <hr>
+                </article>
+            </div>
+
+            <div class="pudelko" id="tytul">
+                <h2 id="przyklad">Przykład</h2>
+            </div>
+            <div class="pudelko" id="wstep">
+                <article>
+                    <h3>Materiał pokazujący jak prawidłowo importować obiekt z <i>Blendera</i> do <i>Unity</i></h3>
+                    <div class="film">
+                        <iframe src="https://www.youtube.com/embed/Oe0vieptvHc" title="Materiał wideo o Unity"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p id="link">Link od filmu: <a href="https://www.youtube.com/watch?v=Oe0vieptvHc">
+                            https://www.youtube.com/watch?v=Oe0vieptvHc</a>
+                    </p>
+                    <hr>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div id="footer" class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Bartosz Bieszczak IiE rok II</p>
+                <p>Numer indeksu: 135025</p>
+            </div>
+
+            <div class="footer-right">
+                <a href="#">Źródła</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
