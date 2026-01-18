@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Wprowadzenie do tworzenia gier w Unity z wykorzystaniem Blendera i C#. Poradnik dla początkujących.">
+    <meta name="keywords" content="Unity, Blender, C#, Gamedev, Programowanie gier, Poradnik">
+    <meta name="author" content="Bartosz Bieszczak">
+
+    <title>Wprowadzenie Unity</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#wstep">Wstęp</a></li>
+                <li><a href="#tech">Technologie</a></li>
+                <li><a href="#zastosowanie">Zastosowanie</a></li>
+                <li><a href="#przyklad">Przykład</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="pudelko main-title">
+            <h1>Wprowadzenie Unity</h1>
+        </div>
+
+        <article id="wstep" class="pudelko content-box">
+            <h2>Wstęp</h2>
+            <hr>
+            <p>Strona stanowi praktyczno-teoretyczne wprowadzenie do tematyki tworzenia gier i aplikacji
+                interaktywnych, opierając się na trzech kluczowych technologiach: silniku
+                <strong><a href="https://pl.wikipedia.org/wiki/Unity_(silnik_gry)" target="_blank"
+                        title="Link do wikipedii">Unity</a></strong>, programie
+                <strong><a href="https://pl.wikipedia.org/wiki/Blender_(program)" target="_blank"
+                        title="Link do wikipedii">Blender</a></strong> oraz języku <strong><a
+                        href="https://pl.wikipedia.org/wiki/C_Sharp" target="_blank"
+                        title="Link do wikipedii">C#</a></strong>.
+                Strona powstał w celu zademonstrowania kompletnego procesu
+                deweloperskiego, łączącego grafikę trójwymiarową z zaawansowaną logiką programistyczną.
+            </p>
+            <p>
+                <i>Blender</i> wykorzystywany jest tutaj do kreacji <i>modeli 3D i animacji</i>, które stanowią
+                wizualny fundament projektu. Unity pełni funkcję środowiska łączącym wszystkie elementy, natomiast język
+                <i>C#</i> służy do tworzenia skryptów sterujących mechaniką i interakcjami.
+            </p>
+            <p>
+                Kluczowym aspektem opracowania jest prezentacja właściwego przepływu pracy. Opisane tu
+                zagadnienia pozwalają zrozumieć, w jaki sposób przygotować zasoby graficzne i poprawnie połączyć
+                je z kodem, aby uzyskać funkcjonalną całość. Materiał ten służy jako baza wiedzy niezbędna do
+                realizacji własnych projektów w <i>Unity</i>.
+            </p>
+            <hr>
+        </article>
+
+        <article id="tech">
+            <div class="pudelko section-title">
+                <h2>Technologie</h2>
+            </div>
+
+            <div class="tech-container">
+                <div class="pudelko">
+                    <h3>Unity</h3>
+                    <p>Unity to serce całego projektu – plac budowy, na którym łączysz grafikę i kod w całość. To
+                        tutaj decydujesz o fizyce i zasadach świata, zamieniając luźne pliki w działającą grę.</p>
+                </div>
+
+                <div class="pudelko">
+                    <h3>Blender</h3>
+                    <p>To twoja cyfrowa pracownia. Działa jak wirtualna glina, z której rzeźbisz postacie i budynki.
+                        Jeśli Unity jest silnikiem, to Blender odpowiada za karoserię i styl twojej gry.</p>
+                </div>
+
+                <div class="pudelko">
+                    <h3>C#</h3>
+                    <p>Język, którym „rozmawiasz” z grą. To on sprawia, że postać skacze, a wrogowie atakują. Bez
+                        niego gra byłaby tylko ładną, ale nieruchomą makietą – to on tchnie w nią życie.</p>
+                </div>
+            </div>
+        </article>
+
+        <section id="zastosowanie">
+            <div class="pudelko section-title">
+                <h2>Łączenie aplikacji</h2>
+            </div>
+
+            <article class="pudelko content-box">
+                <h3>Eksportowanie obiektów z blendera</h3>
+                <hr>
+                <p>
+                    Przenoszenie modeli z <strong>Blendera do Unity</strong> można porównać do tłumaczenia książki
+                    na inny język. Blender to Twój warsztat artystyczny, a Unity to plac budowy gry. Żeby te dwa
+                    programy się
+                    dogadały, musisz użyć <i>formatu FBX</i> – to taki uniwersalny plik, który rozumieją oba
+                    narzędzia.
+                </p>
+                <p>
+                    Cały proces zaczynasz w Blenderze. Kiedy masz już gotowy model (np. postać czy mebel), musisz go
+                    zaznaczyć i wybrać opcję eksportu do pliku <i>.fbx</i> (znajdziesz to w menu <i>File ->
+                        Export</i>). Autor strony zwraca uwagę, że w tym momencie warto zerknąć w ustawienia po prawej
+                    stronie okna zapisu.
+                </p>
+                <p>
+                    Kiedy masz już plik na dysku, wchodzisz do Unity. Tutaj dobra rada: zrób sobie najpierw osobny
+                    folder, np. "Modele", żeby nie robić bałaganu. W tym folderze klikasz prawym przyciskiem myszy,
+                    wybierasz <i>Import New Asset</i> i wskazujesz swój <i>plik FBX</i>.
+                </p>
+                <p>
+                    I tu pojawia się najważniejszy moment. Po wrzuceniu modelu do Unity, może on wyglądać na smutną,
+                    <i>szarą bryłę bez kolorów</i>. Musisz wtedy kliknąć na swój model i w bocznym panelu (Inspektorze)
+                    znaleźć przyciski do "wypakowania" <i>materiałów i tekstur</i>.
+                </p>
+                <p>
+                    Teraz wystarczy przeciągnąć gotowy obiekt na środek ekranu (na Scenę). Od tej chwili jest on
+                    pełnoprawnym elementem gry – możesz do niego pisać skrypty w <strong>C#</strong>.
+                </p>
+
+                <div class="galleryBlender">
+                    <figure>
+                        <img src="Obrazy/ZdjBlender1.png" alt="Eksportowanie FBX w Blenderze">
+                        <figcaption>Menu eksportu: Wybór formatu FBX w Blenderze.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="Obrazy/ZdjBlender2.png" alt="Ustawienia eksportu FBX">
+                        <figcaption>Konfiguracja: Ustawienie "Mesh" i osi współrzędnych.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="Obrazy/ZdjBlender3.png" alt="Importowanie assetu w Unity">
+                        <figcaption>Unity: Importowanie gotowego pliku do folderu projektu.</figcaption>
+                    </figure>
+                </div>
+                <hr>
+
+                <h3>Użycie C# w Unity</h3>
+                <hr>
+                <p><strong>Unity</strong> działa w oparciu o język programowania <strong>C#</strong>. Jest to
+                    rozwiązanie dobrane tak, aby zachować
+                    równowagę między dużymi możliwościami a łatwością nauki. W przeciwieństwie do starszych technologii,
+                    <i>C#</i> jest bezpieczniejszy dla twórcy, ponieważ komputer automatycznie zajmuje się zarządzaniem
+                    pamięcią.
+                </p>
+                <p>
+                    Cała konstrukcja świata gry opiera się na systemie tak zwanych <strong>GameObjectów</strong>.
+                    Najlepiej wyobrazić
+                    je sobie jako puste pudełka. Aby taki pusty obiekt stał się postacią, trzeba wypełnić go
+                    <strong>Komponentami</strong>.
+                </p>
+                <p>
+                    Ponieważ gotowe elementy rzadko wystarczają, niezbędne staje się pisanie własnych <i>skryptów</i>.
+                    Kod stworzony w <i>C#</i> staje się nowym, autorskim komponentem.
+                </p>
+                <p>
+                    Ogromnym ułatwieniem w codziennej pracy jest ścisła <i>integracja kodu</i> z edytorem wizualnym.
+                    Zmienne zdefiniowane w skryptach są widoczne w panelach sterowania, co pozwala na edycję gry „na
+                    żywo”.
+                </p>
+
+                <div class="galleryC">
+                    <figure>
+                        <img src="Obrazy/ZdjC1.avif" alt="Oświetlenie w Unity">
+                        <figcaption>Inspektor: Edycja komponentu światła i podgląd na scenie.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="Obrazy/ZdjC2.avif" alt="Profiler wydajności w Unity">
+                        <figcaption>Profiler: Analiza wydajności skryptów i zużycia pamięci.</figcaption>
+                    </figure>
+                </div>
+                <hr>
+
+                <h3>Podstawowa struktura skryptu</h3>
+                <p>
+                    Każdy nowy skrypt w Unity dziedziczy z klasy bazowej <strong>MonoBehaviour</strong>. To właśnie ona
+                    pozwala
+                    Twojemu kodowi "rozmawiać" z silnikiem gry. Dwie najważniejsze metody, które spotkasz w prawie
+                    każdym
+                    skrypcie, to:
+                </p>
+                <ul>
+                    <li><strong>Start()</strong> – uruchamia się tylko raz, w momencie pojawienia się obiektu w grze.
+                        Służy do konfiguracji początkowej (np. pobrania punktów życia).</li>
+                    <li><strong>Update()</strong> – uruchamia się ciągle, klatka po klatce (nawet 60 razy na sekundę).
+                        Tutaj sprawdza się wciśnięte klawisze i przesuwa postać.</li>
+                </ul>
+
+
+
+                <p>Oto przykładowy kod prostego sterownika postaci:</p>
+
+                <pre><code><span class="keyword">using</span> UnityEngine;
+
+                <span class="keyword">public class</span> <span class="type">ProstyRuch</span> : <span class="type">MonoBehaviour</span>
+                    {
+                        <span class="comment">// Zmienna publiczna będzie widoczna w Inspektorze Unity!</span>
+                        <span class="keyword">public float</span> predkosc = <span class="string">5.0f</span>;
+
+                        <span class="keyword">void</span> <span class="function">Update</span>()
+                        {
+                            <span class="comment">// Pobranie wciśniętych klawiszy (W/S lub strzałki)</span>
+                            <span class="keyword">float</span> ruchPionowy = <span class="type">Input</span>.<span class="function">GetAxis</span>(<span class="string">"Vertical"</span>);
+
+                            <span class="comment">// Przesunięcie obiektu do przodu w czasie rzeczywistym</span>
+                            transform.<span class="function">Translate</span>(<span class="type">Vector3</span>.forward * ruchPionowy * predkosc * <span class="type">Time</span>.deltaTime);
+                        }
+                    }              
+                     </code></pre>
+
+                <p>
+                    W powyższym przykładzie zmienna <code>predkosc</code> jest publiczna. Dzięki temu, po przeciągnięciu
+                    skryptu na obiekt w Unity, zobaczysz pole numeryczne, w którym możesz zmieniać szybkość poruszania
+                    się
+                    bez konieczności wracania do kodu. Użycie <code>Time.deltaTime</code> gwarantuje, że ruch będzie
+                    płynny niezależnie od liczby klatek na sekundę.
+                </p>
+            </article>
+        </section>
+
+        <section id="przyklad">
+            <div class="pudelko section-title">
+                <h2>Przykład</h2>
+            </div>
+
+            <article class="pudelko content-box">
+                <h3>Materiał pokazujący jak prawidłowo importować obiekt z <i>Blendera</i> do <i>Unity</i></h3>
+                <div class="film">
+                    <iframe src="https://www.youtube.com/embed/Oe0vieptvHc" title="Materiał wideo o Unity"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="link-center">Link do filmu: <a href="https://www.youtube.com/watch?v=Oe0vieptvHc"
+                        target="_blank">
+                        https://www.youtube.com/watch?v=Oe0vieptvHc</a>
+                </p>
+                <hr>
+            </article>
+        </section>
+    </main>
+
+    <section id="quiz-promo">
+
+        <article class="pudelko content-box" style="text-align: center;">
+            <h3>Sprwadź swoją wiedzę</h3>
+            <hr>
+            <p>
+                Zapoznałeś się z procesem eksportu modeli, strukturą skryptów C# oraz podstawami Unity.
+                Teraz czas sprawdzić, ile zapamiętałeś! Przygotowaliśmy interaktywny test składający się z
+                <strong>dziesięciu pytań</strong>. Każde z nich wykorzystuje inną mechanikę sprawdzania wiedzy.
+            </p>
+            <div style="margin-top: 20px; margin-bottom: 20px;">
+                <a href="quiz.html" class="quiz-btn">Rozpocznij Quiz</a>
+            </div>
+            <hr>
+        </article>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Bartosz Bieszczak IiE rok II</p>
+                <p>Numer indeksu: 135025</p>
+            </div>
+
+            <div class="footer-right">
+                <a href="https://github.com/BBieszczak/Technologie-Interetowe-Projekt/tree/main"
+                    target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        // Pobierz modal
+        var modal = document.getElementById("myModal");
+
+        // Pobierz obraz wewnątrz modala i tekst podpisu
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+
+
+        var images = document.querySelectorAll('.galleryBlender img, .galleryC img');
+
+        // Dodaj nasłuchiwanie kliknięcia do każdego obrazka
+        images.forEach(img =>
+            img.onclick = function () {
+                modal.style.display = "flex"; // ZMIANA: z "block" na "flex"
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            });
+
+        // Pobierz element <span>, który zamyka modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Kiedy użytkownik kliknie na (x), zamknij modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Kiedy użytkownik kliknie gdziekolwiek poza zdjęciem, też zamknij
+        modal.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Quiz Wiedzy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Powrót do strony głównej</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="pudelko main-title">
+            <h1>Quiz wiedzy: Unity & Blender</h1>
+            <p>10 Pytań </p>
+        </div>
+
+        <div class="quiz-container">
+
+            <article class="question-box" id="q1">
+                <h3>1. Jaka klasa bazowa jest wymagana, aby skrypt działał jako komponent w Unity?</h3>
+                <form>
+                    <label><input type="radio" name="q1" value="a"> System.Object</label><br>
+                    <label><input type="radio" name="q1" value="b"> MonoBehaviour</label><br>
+                    <label><input type="radio" name="q1" value="c"> UnityScript</label><br>
+                    <label><input type="radio" name="q1" value="d"> GameEntity</label>
+                </form>
+                <button class="check-btn" onclick="checkQ1()">Sprawdź</button>
+                <div class="feedback" id="f1"></div>
+            </article>
+
+            <article class="question-box" id="q2">
+                <h3>2. Zaznacz wszystkie technologie wymienione w poradniku jako kluczowe.</h3>
+                <form>
+                    <label><input type="checkbox" name="q2" value="unity"> Unity</label><br>
+                    <label><input type="checkbox" name="q2" value="unreal"> Unreal Engine</label><br>
+                    <label><input type="checkbox" name="q2" value="blender"> Blender</label><br>
+                    <label><input type="checkbox" name="q2" value="csharp"> C#</label><br>
+                    <label><input type="checkbox" name="q2" value="python"> Python</label>
+                </form>
+                <button class="check-btn" onclick="checkQ2()">Sprawdź</button>
+                <div class="feedback" id="f2"></div>
+            </article>
+
+            <article class="question-box" id="q3">
+                <h3>3. Jaki format pliku jest rekomendowany do przenoszenia modeli z Blendera do Unity?</h3>
+                <input type="text" id="input-q3" placeholder="Wpisz rozszerzenie (np. .txt)" class="text-input">
+                <button class="check-btn" onclick="checkQ3()">Sprawdź</button>
+                <div class="feedback" id="f3"></div>
+            </article>
+
+            <article class="question-box" id="q4">
+                <h3>4. Ustaw etapy eksportu z Blendera w dobrej kolejności (przeciągnij pierwszt element na górę).</h3>
+                <ul class="draggable-list" id="sortable-list">
+                    <li class="draggable-item" draggable="true" data-index="2">Wybierz File -> Export -> FBX</li>
+                    <li class="draggable-item" draggable="true" data-index="1">Zaznacz model w Blenderze</li>
+                    <li class="draggable-item" draggable="true" data-index="3">Skonfiguruj ustawienia (np. Mesh)</li>
+                </ul>
+                <button class="check-btn" onclick="checkQ4()">Sprawdź</button>
+                <div class="feedback" id="f4"></div>
+            </article>
+
+            <article class="question-box" id="q5">
+                <h3>5. Dopasuj narzędzie do jego roli (przeciągnij kolorowe klocki w szare pola).</h3>
+                <div class="match-container">
+                    <div id="source-q5" class="source-zone">
+                        <div id="drag-unity" class="draggable-item" draggable="true"
+                            style="background:#ddd; border-left: 5px solid black;">Silnik Gry</div>
+                        <div id="drag-blender" class="draggable-item" draggable="true"
+                            style="background:#eecdaa; border-left: 5px solid orange;">Modele 3D</div>
+                        <div id="drag-code" class="draggable-item" draggable="true"
+                            style="background:#add8e6; border-left: 5px solid blue;">Logika (C#)</div>
+                    </div>
+
+                    <div class="match-targets">
+                        <div class="match-row">Unity: <div class="drop-zone" data-correct="drag-unity"></div>
+                        </div>
+                        <div class="match-row">Blender: <div class="drop-zone" data-correct="drag-blender"></div>
+                        </div>
+                        <div class="match-row">Skrypty: <div class="drop-zone" data-correct="drag-code"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons-row">
+                    <button class="check-btn" onclick="checkQ5()">Sprawdź zadanie</button>
+                    <button class="reset-btn" onclick="resetQ5()">Reset &#8634;</button>
+                </div>
+                <div class="feedback" id="f5"></div>
+            </article>
+
+            <article class="question-box" id="q6">
+                <h3>6. Jaka wartość zmiennej 'predkosc' została ustawiona w przykładowym kodzie?</h3>
+                <div class="slider-container">
+                    <input type="range" id="slider-q6" min="0" max="10" step="0.5" value="0"
+                        oninput="document.getElementById('slider-val').innerText = this.value">
+                    <span id="slider-val">0</span>
+                </div>
+                <button class="check-btn" onclick="checkQ6()">Sprawdź</button>
+                <div class="feedback" id="f6"></div>
+            </article>
+
+            <article class="question-box" id="q7">
+                <h3>7. Uzupełnij luki w kodzie, aby ruch był płynny i niezależny od klatek.</h3>
+                <pre class="code-block">
+transform.Translate(Vector3.forward * predkosc * <select id="select-q7">
+    <option value="error">---</option>
+    <option value="wrong1">Time.time</option>
+    <option value="correct">Time.deltaTime</option>
+    <option value="wrong2">Input.mousePosition</option>
+</select>);
+                </pre>
+                <button class="check-btn" onclick="checkQ7()">Sprawdź</button>
+                <div class="feedback" id="f7"></div>
+            </article>
+
+            <article class="question-box" id="q8">
+                <h3>8. Metoda Start() wykonuje się w każdej klatce gry (np. 60 razy na sekundę).</h3>
+                <div class="toggle-container">
+                    <span>Fałsz</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle-q8">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Prawda</span>
+                </div>
+                <button class="check-btn" onclick="checkQ8()">Sprawdź</button>
+                <div class="feedback" id="f8"></div>
+            </article>
+
+            <article class="question-box" id="q9">
+                <h3>9. Który obrazek przedstawia "Inspektora" w Unity (edycję komponentów)?</h3>
+                <p style="font-size:0.9rem; color:#666;">Kliknij lupę, aby powiększyć. Kliknij obrazek, aby wybrać.</p>
+                <div class="img-select-container">
+
+                    <div class="img-wrapper">
+                        <img src="Obrazy/ZdjBlender1.png" class="img-option" onclick="selectImg(this, 'wrong')"
+                            alt="Menu Blender">
+                        <span class="zoom-icon" onclick="openModal('Obrazy/ZdjBlender1.png')">🔍</span>
+                    </div>
+
+                    <div class="img-wrapper">
+                        <img src="Obrazy/ZdjC1.avif" class="img-option" onclick="selectImg(this, 'correct')"
+                            alt="Inspektor">
+                        <span class="zoom-icon" onclick="openModal('Obrazy/ZdjC1.avif')">🔍</span>
+                    </div>
+
+                    <div class="img-wrapper">
+                        <img src="Obrazy/ZdjC2.avif" class="img-option" onclick="selectImg(this, 'wrong')"
+                            alt="Profiler">
+                        <span class="zoom-icon" onclick="openModal('Obrazy/ZdjC2.avif')">🔍</span>
+                    </div>
+
+                </div>
+                <input type="hidden" id="q9-val" value="">
+                <button class="check-btn" onclick="checkQ9()">Sprawdź</button>
+                <div class="feedback" id="f9"></div>
+            </article>
+
+            <article class="question-box" id="q10">
+                <h3>10. Kliknij przyciski w poprawnej kolejności importu assetu do Unity.</h3>
+                <p style="font-size: 0.9rem;">Musisz kliknąć je po kolei</p>
+                <div id="seq-container">
+                    <button class="seq-btn" onclick="seqClick(this, 2)">Import New Asset</button>
+                    <button class="seq-btn" onclick="seqClick(this, 3)">Wypakuj Materiały</button>
+                    <button class="seq-btn" onclick="seqClick(this, 1)">Stwórz folder "Modele"</button>
+                </div>
+                <button class="check-btn" onclick="checkQ10()">Sprawdź</button>
+                <div class="feedback" id="f10"></div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+       <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Bartosz Bieszczak IiE rok II</p>
+                <p>Numer indeksu: 135025</p>
+            </div>
+
+            <div class="footer-right">
+                <a href="https://github.com/BBieszczak/Technologie-Interetowe-Projekt/tree/main" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="img-modal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+
+    <script src="quiz.js"></script>
+    <script src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"></script>
+</body>
+
+</html>
