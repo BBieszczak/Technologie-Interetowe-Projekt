@@ -10,9 +10,10 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     line-height: 1.6;
+    /* POPRAWKA: Ścieżka relatywna, działa w każdym folderze */
     background: 
         linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
-        url('/Obrazy/T%C5%82o.jpg') center/cover fixed;
+        url('Obrazy/Tło.jpg') center/cover fixed;
 }
 
 /* --- NAWIGACJA (RESPONSYWNA) --- */
@@ -431,18 +432,53 @@ footer {
     cursor: pointer;
 }
 
+/* --- POPRAWKA DLA MOBILNEGO MODALA (NAPRAWIONE) --- */
 @media only screen and (max-width: 700px){
-    .modal-content {
-        width: 95%;
+    /* WAŻNE: Usunięto 'display: block !important', co powodowało automatyczne otwieranie.
+       Teraz modal otworzy się tylko, gdy klikniesz lupę (obsługuje to JavaScript).
+    */
+    
+    .modal {
+        /* Ustawiamy style dla już OTWARTEGO modala */
+        padding-top: 0; 
+        overflow-y: auto; /* Pozwala przewijać długie obrazki */
+        justify-content: flex-start; /* Zaczynaj od góry */
     }
-    .close {
-        top: 10px;
-        right: 20px;
+
+    .modal-content {
+        width: 100%; /* Pełna szerokość */
+        max-width: none;
+        max-height: none; /* Brak limitu wysokości, żeby się nie ucinało */
+        height: auto;
+        margin-top: 60px; /* Odstęp od góry, żeby nie zasłonić przycisku X */
+        margin-bottom: 20px;
+    }
+
+    /* Przycisk zamykania (X) - Naprawiony */
+    .close, .close-modal {
+        position: fixed; /* Przyklejony do ekranu, nie ucieka przy przewijaniu */
+        top: 15px;
+        right: 15px;
+        color: white;
+        background: rgba(0, 0, 0, 0.7); /* Ciemne tło, żeby był widoczny na białych zdjęciach */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 30px;
+        z-index: 2005; /* Zawsze na wierzchu */
+        cursor: pointer;
+    }
+
+    #caption {
+        width: 95%;
+        padding-bottom: 30px;
     }
 }
 
-/* --- stylizacja quizu --- */
+/* --- Stylizacja przycisku Quizu --- */
 .quiz-btn {
     display: inline-block;
     padding: 15px 40px;

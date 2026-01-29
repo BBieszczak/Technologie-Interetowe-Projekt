@@ -1,8 +1,36 @@
-/** Your class description */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: quiz.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: quiz.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** Your class description */
 /**
  * @file quiz.js
  * @description Główny plik logiki dla interaktywnego quizu o Unity i Blenderze.
- * Obsługuje walidację 10 typów pytań, mechanikę Drag&Drop (mysz/dotyk)
+ * Obsługuje walidację 10 typów pytań, mechanikę Drag&amp;Drop (mysz/dotyk)
  * oraz system feedbacku dla użytkownika.
  * * @author Bartosz Bieszczak
  * @version 1.1.0
@@ -68,7 +96,7 @@ function checkQ2() {
     const selected = Array.from(checkboxes).map(c => c.value);
 
     // Sprawdzenie: czy liczba zaznaczeń to 3 ORAZ czy wszystkie są na liście poprawnych
-    const isCorrect = selected.length === 3 && selected.every(val => correct.includes(val));
+    const isCorrect = selected.length === 3 &amp;&amp; selected.every(val => correct.includes(val));
 
     if (isCorrect) {
         showResult('f2', true, "Zgadza się! Unity, Blender i C# to trzon projektu.");
@@ -97,7 +125,7 @@ function checkQ3() {
 }
 
 // ==========================================
-// === SYSTEM HYBRYDOWY (DRAG & DROP / CLICK) ===
+// === SYSTEM HYBRYDOWY (DRAG &amp; DROP / CLICK) ===
 // ==========================================
 
 /** * Zmienna globalna przechowująca aktualnie zaznaczony element (dla trybu dotykowego/kliknięcia).
@@ -107,7 +135,7 @@ let selectedElement = null;
 
 /**
  * Obsługuje logikę "Tap to Select" (Kliknij, aby wybrać).
- * Służy jako alternatywa dla Drag&Drop na urządzeniach mobilnych.
+ * Służy jako alternatywa dla Drag&amp;Drop na urządzeniach mobilnych.
  *
  * @param {HTMLElement} element - Element, który został kliknięty.
  */
@@ -146,7 +174,7 @@ if (list) {
     const items = list.querySelectorAll('li');
     
     items.forEach(item => {
-        // --- A. Obsługa Myszki (Native Drag & Drop API) ---
+        // --- A. Obsługa Myszki (Native Drag &amp; Drop API) ---
         item.setAttribute('draggable', true);
         
         // Rozpoczęcie przeciągania
@@ -173,7 +201,7 @@ if (list) {
         item.addEventListener('drop', (e) => {
             e.preventDefault();
             e.target.style.borderTop = "";
-            if (draggedItem && draggedItem !== e.target) {
+            if (draggedItem &amp;&amp; draggedItem !== e.target) {
                 // Wstawiamy przeciągany element PRZED elementem, na który upuszczono
                 list.insertBefore(draggedItem, e.target);
             }
@@ -182,7 +210,7 @@ if (list) {
         // --- B. Obsługa Dotyku/Kliknięcia (Tap to Move) ---
         item.addEventListener('click', (e) => {
             // Sytuacja: Mamy zaznaczony element A, klikamy w element B -> Przenieś A przed B
-            if (selectedElement && selectedElement !== item && list.contains(selectedElement)) {
+            if (selectedElement &amp;&amp; selectedElement !== item &amp;&amp; list.contains(selectedElement)) {
                 list.insertBefore(selectedElement, item);
                 selectedElement.classList.remove('selected-item');
                 selectedElement = null; // Reset po akcji
@@ -202,7 +230,7 @@ function checkQ4() {
     const items = list.querySelectorAll('li');
     const order = Array.from(items).map(i => i.getAttribute('data-index'));
     
-    if (order[0] === '1' && order[1] === '2' && order[2] === '3') {
+    if (order[0] === '1' &amp;&amp; order[1] === '2' &amp;&amp; order[2] === '3') {
         showResult('f4', true, "Doskonale! Kolejność jest poprawna.");
     } else {
         showResult('f4', false, "Zła kolejność. Prawidłowo: 1.Zaznacz -> 2.Export -> 3.Ustawienia.");
@@ -248,7 +276,7 @@ draggables.forEach(d => {
 
 // 2. Konfiguracja stref zrzutu (pól docelowych)
 dropZones.forEach(z => {
-    // -- Drag & Drop Events --
+    // -- Drag &amp; Drop Events --
     z.addEventListener('dragover', e => {
         e.preventDefault();
         z.style.background = "#e6ffe6"; // Podświetlenie strefy
@@ -263,7 +291,7 @@ dropZones.forEach(z => {
         const el = document.getElementById(id);
         
         // Pozwól upuścić tylko, jeśli strefa jest pusta
-        if (el && !z.hasChildNodes()) {
+        if (el &amp;&amp; !z.hasChildNodes()) {
             z.appendChild(el);
         }
     });
@@ -271,7 +299,7 @@ dropZones.forEach(z => {
     // -- Click Event (dla systemu hybrydowego) --
     z.addEventListener('click', () => {
         // Jeśli użytkownik wcześniej kliknął w klocek (selectedElement) i klika w pustą strefę
-        if (selectedElement && !z.hasChildNodes()) {
+        if (selectedElement &amp;&amp; !z.hasChildNodes()) {
             z.appendChild(selectedElement); // Przenieś element fizycznie w DOM
             selectedElement.classList.remove('selected-item');
             selectedElement = null; // Reset
@@ -284,7 +312,7 @@ dropZones.forEach(z => {
  * Kliknięcie w kontener źródłowy (gdy klocek jest zaznaczony) cofa go.
  */
 sourceContainer.addEventListener('click', () => {
-    if (selectedElement && dropZones.contains(selectedElement.parentElement)) {
+    if (selectedElement &amp;&amp; dropZones.contains(selectedElement.parentElement)) {
          sourceContainer.appendChild(selectedElement); // Cofnij do puli
          selectedElement.classList.remove('selected-item');
          selectedElement = null;
@@ -300,7 +328,7 @@ function checkQ5() {
     
     dropZones.forEach(z => {
         // Sprawdź czy strefa ma dziecko I czy ID dziecka zgadza się z wzorcem
-        if (z.firstChild && z.firstChild.id === z.getAttribute('data-correct')) {
+        if (z.firstChild &amp;&amp; z.firstChild.id === z.getAttribute('data-correct')) {
             correctCount++;
         }
     });
@@ -384,7 +412,7 @@ function checkQ8() {
 
 /**
  * Zaznacza obrazek w zadaniu 9.
- * @param {HTMLElement} element - Kliknięty element <img>.
+ * @param {HTMLElement} element - Kliknięty element &lt;img>.
  * @param {string} value - Wartość przypisana do obrazka ('correct' lub 'wrong').
  */
 function selectImg(element, value) {
@@ -461,12 +489,12 @@ function seqClick(btn, number) {
  */
 function checkQ10() {
     // Jeśli użytkownik nie kliknął 3 razy, przerwij
-    if (userSequence.length < 3) {
+    if (userSequence.length &lt; 3) {
         return showResult('f10', false, "Kliknij wszystkie 3.");
     }
     
     // Sprawdzenie kolejności
-    if (userSequence[0] === 1 && userSequence[1] === 2 && userSequence[2] === 3) {
+    if (userSequence[0] === 1 &amp;&amp; userSequence[1] === 2 &amp;&amp; userSequence[2] === 3) {
         showResult('f10', true, "Gratulacje! Prawidłowy import.");
     } else {
         // Reset w przypadku błędu
@@ -474,4 +502,26 @@ function checkQ10() {
         document.querySelectorAll('.seq-btn').forEach(b => b.classList.remove('active'));
         showResult('f10', false, "Zła kolejność. Reset.");
     }
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkQ1">checkQ1</a></li><li><a href="global.html#checkQ10">checkQ10</a></li><li><a href="global.html#checkQ2">checkQ2</a></li><li><a href="global.html#checkQ3">checkQ3</a></li><li><a href="global.html#checkQ4">checkQ4</a></li><li><a href="global.html#checkQ5">checkQ5</a></li><li><a href="global.html#checkQ6">checkQ6</a></li><li><a href="global.html#checkQ7">checkQ7</a></li><li><a href="global.html#checkQ8">checkQ8</a></li><li><a href="global.html#checkQ9">checkQ9</a></li><li><a href="global.html#closeModal">closeModal</a></li><li><a href="global.html#draggables">draggables</a></li><li><a href="global.html#draggedItem">draggedItem</a></li><li><a href="global.html#dropZones">dropZones</a></li><li><a href="global.html#handleSelection">handleSelection</a></li><li><a href="global.html#list">list</a></li><li><a href="global.html#openModal">openModal</a></li><li><a href="global.html#resetQ5">resetQ5</a></li><li><a href="global.html#selectImg">selectImg</a></li><li><a href="global.html#selectedElement">selectedElement</a></li><li><a href="global.html#seqClick">seqClick</a></li><li><a href="global.html#showResult">showResult</a></li><li><a href="global.html#sourceContainer">sourceContainer</a></li><li><a href="global.html#userSequence">userSequence</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jan 28 2026 04:13:15 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

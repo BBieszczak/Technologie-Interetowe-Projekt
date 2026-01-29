@@ -334,4 +334,56 @@ input:checked + .slider:before { transform: translateX(26px); }
         margin: 5px 0;
         padding: 15px;
     }
+
+}
+
+/* Zapobiega przesuwaniu ekranu, gdy dotykamy elementu do przeciągania */
+.draggable-item {
+    touch-action: pan-y; /* NAPRAWA: Zmieniono z 'none' na 'pan-y' aby umożliwić przewijanie! */
+    cursor: grab;
+}
+
+.draggable-item:active {
+    cursor: grabbing;
+    opacity: 0.8;
+    transform: scale(1.02); /* Lekkie powiększenie pod palcem */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Ułatwienia dla ekranów dotykowych */
+@media (max-width: 768px) {
+    /* Większe pola zrzutu, żeby łatwiej trafić palcem */
+    .drop-zone {
+        min-height: 60px;
+        border-width: 2px;
+    }
+    
+    /* Większe odstępy między elementami listy w zadaniu 4 */
+    .draggable-list li {
+        margin-bottom: 10px;
+        padding: 15px;
+        font-size: 1.1rem; /* Większy tekst */
+    }
+
+    /* Układ pionowy dla zadania 5 */
+    .match-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+    
+    /* Nazwy kategorii w zadaniu 5 pogrubione */
+    .match-row {
+        font-weight: bold;
+        color: #5b4174;
+    }
+}
+
+/* --- Styl dla zaznaczonego elementu (Mobile Click) --- */
+.selected-item {
+    border: 3px solid #e74c3c !important; /* Czerwona ramka zaznaczenia */
+    background-color: #fff5f5;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+    transition: all 0.2s ease;
 }
